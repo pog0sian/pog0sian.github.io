@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Киноеда</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <script type="module" src="./js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Киноеда - это сайт, где вы можете найти рецепты блюд из ваших любимых фильмов и сериалов.">
+</head>
+<body>
+    <header>
+        <img src="./assets/logo.JPEG" alt="Логотип Киноеда" class="logo">
+        <h1>КиноЕда</h1>
+        <nav>
+            <ul>
+                <li><a href="https://t.me/movie_meal_bot" target="_blank" rel="noopener noreferrer">Телеграм бот</a></li>
+                <li><a href="https://t.me/pog0sian" target="_blank" rel="noopener noreferrer">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="greeting-block">
+            <p class="greeting-text slide-up">Привет, {name}!</p>
+            <button class="greeting-btn slide-up">Далее</button>
+        </div>
+        <div class="evening-offer-block">
+            <p class="evening-offer-text hidden">Скрасим твой вечер чудным ужином?</p>
+            <button class="evening-offer-btn hidden">Давай</button>
+        </div>
+        <div class="category-block hidden">
+            <p class="category-text">Выбери категорию блюда</p>
+            <div class="categories-marquee">
+                <div class="categories-track">
+                    <button class="category-btn" data-category="Beef">Говядина</button>
+                    <button class="category-btn" data-category="Chicken">Курица</button>
+                    <button class="category-btn" data-category="Dessert">Десерт</button>
+                    <button class="category-btn" data-category="Goat">Козлёнок</button>
+                    <button class="category-btn" data-category="Lamb">Ягнёнок</button>
+                    <button class="category-btn" data-category="Miscellaneous">Смешанный</button>
+                    <button class="category-btn" data-category="Pork">Свинина</button>
+                    <button class="category-btn" data-category="Seafood">Морепродукты</button>
+                    <button class="category-btn" data-category="Side">Гарниры</button>
+                    <button class="category-btn" data-category="Starter">Стартеры</button>
+                    <button class="category-btn" data-category="Vegan">Веганское</button>
+                    <button class="category-btn" data-category="Vegetarian">Вегетарианское</button>
+                </div>
+            </div>
+        </div>
+        <div class="movie-meal-block hidden">
+            <div class="meal-block hidden">
+                <h2>Ваше блюдо</h2>
+                <div class="meal-content">
+                    <p class="meal-name"></p>
+                </div>
+            </div>
+            <div class="movie-block hidden">
+                <h2>Ваш фильм</h2>
+                <p class="movie-name"></p>
+                <div class="movie-content">
+                    <iframe class="movie" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Киноеда</p>
+        <p>Все права защищены.</p>
+        <p>Контакты: <a href="https://t.me/pog0sian">pog0sian</a></p>
+    </footer>
+</body>
+</html>
