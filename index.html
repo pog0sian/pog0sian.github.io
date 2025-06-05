@@ -12,6 +12,7 @@
     <header>
         <img src="./assets/logo.JPEG" alt="Логотип Киноеда" class="logo">
         <h1>КиноЕда</h1>
+        <p class="hello-text"></p>
         <nav>
             <ul>
                 <li><a href="https://t.me/movie_meal_bot" target="_blank" rel="noopener noreferrer">Телеграм бот</a></li>
@@ -22,6 +23,9 @@
     <div class="container">
         <div class="greeting-block">
             <p class="greeting-text slide-up">Привет, {name}!</p>
+            <label>
+                <input class="slide-up" id="name-input" type="text" placeholder="Введите имя">
+            </label>
             <button class="greeting-btn slide-up">Далее</button>
         </div>
         <div class="evening-offer-block">
@@ -58,8 +62,9 @@
                 <h2>Ваш фильм</h2>
                 <p class="movie-name"></p>
                 <div class="movie-content">
-                    <iframe class="movie" frameborder="0" allowfullscreen></iframe>
+                    <iframe class="movie" allowfullscreen></iframe>
                 </div>
+                <button class="movie-meal-restart-btn">Обновить</button>
             </div>
         </div>
     </div>

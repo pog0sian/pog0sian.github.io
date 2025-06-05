@@ -3,7 +3,7 @@ import { findMovieByMeal } from './api/tmdb.js';
 import { getMovieTrailer } from "./api/youtube.js";
 import { translateText } from "./api/translate.js";
 
-// --- UI transitions logic ---
+
 window.addEventListener('DOMContentLoaded', () => {
     // Greeting → Offer
     const greetingBlock = document.querySelector('.greeting-block');
@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const eveningOfferBlock = document.querySelector('.evening-offer-block');
     const categoryBlock = document.querySelector('.category-block');
     const movieMealBlock = document.querySelector('.movie-meal-block');
-    const loader = document.querySelector('.loader');
+    const restartBtn = document.querySelector('.movie-meal-restart-btn');
 
     if (greetingBtn) {
         greetingBtn.addEventListener('click', function() {
@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Категории → результат
+    // Category → Result
     let selectedCategory = null;
     if (categoryBlock) {
         categoryBlock.addEventListener('animationend', async function(e) {
@@ -63,6 +63,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
     document.querySelectorAll('.category-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             selectedCategory = btn.dataset.category;
@@ -72,6 +73,27 @@ window.addEventListener('DOMContentLoaded', () => {
             categoryBlock.classList.add('slide-to-top');
         });
     });
+
+    restartBtn.addEventListener('click', async function() {
+        document.querySelector('.meal-block').classList.add('hidden');
+        document.querySelector('.movie-block').classList.add('hidden');
+
+        if (selectedCategory) {
+            const data = await getMealAndMovieTrailer(selectedCategory);
+            renderMealAndMovie(data);
+        }
+    });
+
+    const input = document.getElementById('name-input');
+    const greeting = document.querySelector('.greeting-text');
+    const headerTitle = document.querySelector('.hello-text');
+    if (input && greeting && headerTitle) {
+        input.addEventListener('input', (e) => {
+            const name = e.target.value || '{name}';
+            greeting.textContent = `Привет, ${name}!`;
+            headerTitle.textContent = `${name !== '{name}' ? ` — Привет, ${name}` : ''}`;
+        });
+    }
 });
 
 async function getMealAndMovieTrailer(category) {
