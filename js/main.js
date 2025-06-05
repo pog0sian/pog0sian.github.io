@@ -14,6 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const categoryBlock = document.querySelector('.category-block');
     const movieMealBlock = document.querySelector('.movie-meal-block');
     const restartBtn = document.querySelector('.movie-meal-restart-btn');
+    const backBtn = document.querySelector('.movie-meal-back-btn');
 
     if (greetingBtn) {
         greetingBtn.addEventListener('click', function() {
@@ -83,6 +84,17 @@ window.addEventListener('DOMContentLoaded', () => {
             renderMealAndMovie(data);
         }
     });
+
+   backBtn.addEventListener('click', function() {
+       document.querySelector('.movie-meal-block').classList.add('hidden');
+       document.querySelector('.meal-block').classList.add('hidden');
+       document.querySelector('.movie-block').classList.add('hidden');
+       categoryBlock.style.display = 'block';
+       categoryBlock.classList.remove('hidden');
+       categoryBlock.classList.remove('slide-to-top');
+       categoryBlock.classList.add('slide-up');
+       restartMarqueeAnimation();
+   });
 
     const input = document.getElementById('name-input');
     const greeting = document.querySelector('.greeting-text');
